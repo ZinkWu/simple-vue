@@ -16,4 +16,10 @@ function hasOwn(obj, key) {
 }
 
 
-export { def, isObject, hasOwn }
+// 确认是合法索引
+function isValidArrayIndex(val) {
+  const n = parseFloat(String(val))
+  return n >= 0 && Math.floor(n) === n && isFinite(val)
+}
+
+export { def, isObject, hasOwn, isValidArrayIndex }

@@ -1,4 +1,5 @@
 import { defineReactive } from "./defineReactive"
+import { isValidArrayIndex } from "./utils"
 
 function $set(target, key, value) {
   // 如果 target 是数组，就使用 splice 修改元素，因为 splice 已经被重写， 所以会触发依赖更新
@@ -28,8 +29,3 @@ function $set(target, key, value) {
   return value
 }
 
-// 确认是合法索引
-function isValidArrayIndex(val) {
-  const n = parseFloat(String(val))
-  return n >= 0 && Math.floor(n) === n && isFinite(val)
-}
