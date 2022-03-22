@@ -1,11 +1,11 @@
 import { Dep } from "./dep"
-import { observe, Observer } from "./observer"
+import { observe } from "./observer"
 
 // 将对象的属性转为响应式
 export function defineReactive(data, key, val) {
-  const dep = new Dep()
   //获取数组的 ob
   const childOb = observe(val)
+  const dep = new Dep()
 
   Object.defineProperty(data, key, {
     enumerable: true,

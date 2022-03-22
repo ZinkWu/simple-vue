@@ -37,7 +37,11 @@ export class Observer {
   }
 }
 
-// 
+/**
+ * 尝试为 value 创建一个 Observer
+ * 如果 value 已有 Observe 则说明该对象已经是响应式数据，直接 return 该 Observer 实例
+ * 如果不是则为它创建 Observe 并返回新的 Observer 实例
+ */
 export function observe(value) {
   if (!isObject(value)) return
 

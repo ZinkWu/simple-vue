@@ -1,5 +1,8 @@
+const uid = 0;
+
 export class Dep {
   constructor() {
+    this.id = uid++
     this.subs = []
   }
 
@@ -13,7 +16,7 @@ export class Dep {
 
   depend() {
     if (window.target) {
-      this.addSub(window.target)
+      window.target.addDep(this)
     }
   }
 
