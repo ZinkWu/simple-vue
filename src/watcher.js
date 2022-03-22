@@ -1,7 +1,11 @@
 export class Watcher {
   constructor(vm, expOrFn, cb) {
     this.vm = vm
-    this.getter = parsePath(expOrFn)
+    if (typeof expOrFn === 'function') {
+      this.getter = expOrFn
+    } else {
+      this.getter = parsePath(expOrFn)
+    }
     this.cb = cb
     this.value = this.get()
   }

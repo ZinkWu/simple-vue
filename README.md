@@ -18,7 +18,7 @@
 - Dep
   - 收集依赖，类似 EventHub
 - Watcher
-  - 创造依赖
+  - 对依赖层的抽象，如**模板**、`watch`对数据的依赖
 
 对于数组的响应式，其核心依旧依靠的是`Object.defineProperty`，不过实现不相同，因为数组的变动是无法触发`Object.defineProperty`的`setter`，需要将改变数组本身的 7 个方法拦截，在其中向依赖发送消息。
 
