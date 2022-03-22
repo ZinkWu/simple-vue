@@ -3,7 +3,6 @@ import { observe, Observer } from "./observer"
 
 // 将对象的属性转为响应式
 export function defineReactive(data, key, val) {
-  if (typeof val === 'object') new Observer(val)
   const dep = new Dep()
   //获取数组的 ob
   const childOb = observe(val)
